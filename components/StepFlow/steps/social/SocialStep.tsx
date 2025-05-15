@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Pressable } from 'react-native';
 import { StepProps } from '../../StepFlow';
 import styles from './socialStepStyles';
-import common from '../commonStyles';
+import createCommonStyles from '../commonStyles';
+import { useTheme } from '@/app/context/ThemeContext';
 
-export function SocialStep({ data, setData, goToNext, goToPrevious }: StepProps) {
+export function SocialStep({ data, setData, goToNext }: StepProps) {
+  const { theme } = useTheme();
+  const common = createCommonStyles(theme);
   const [mode, setMode] = useState<'solo' | 'join' | 'create'>(data.groupMode || 'solo');
   const [groupCode, setGroupCode] = useState(data.groupCode || '');
   const [groupName, setGroupName] = useState(data.groupName || '');
@@ -70,14 +73,7 @@ export function SocialStep({ data, setData, goToNext, goToPrevious }: StepProps)
         />
       )}
 
-      <View style={styles.actionRow}>
-        <Pressable onPress={goToPrevious} style={({ pressed }) => [
-          styles.navButton,
-          pressed && styles.navPressed
-        ]}>
-          <Text style={styles.navText}>← Back</Text>
-        </Pressable>
-
+      <View style={common.actionRow}>
         <Pressable onPress={onContinue} style={({ pressed }) => [
           styles.navButton,
           pressed && styles.navPressed

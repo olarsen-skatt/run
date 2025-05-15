@@ -2,13 +2,17 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { StepProps } from '../../StepFlow';
-import common from '../commonStyles';
+import createCommonStyles from '../commonStyles';
+import { useTheme } from '@/app/context/ThemeContext';
 
 export function IntroStep({ goToNext }: StepProps) {
+  const { theme } = useTheme();
+  const common = createCommonStyles(theme);
+  
   return (
     <View style={common.container}>
       <Text style={common.title}>You said you would.</Text>
-      <Text style={common.subline}>Let’s make that real.</Text>
+      <Text style={common.subline}>Let's make that real.</Text>
 
       <Pressable
         onPress={goToNext}
@@ -17,7 +21,7 @@ export function IntroStep({ goToNext }: StepProps) {
           pressed && common.buttonPressed,
         ]}
       >
-        <Text style={common.buttonText}>Let’s begin</Text>
+        <Text style={common.buttonText}>Let's begin</Text>
       </Pressable>
     </View>
   );

@@ -3,12 +3,21 @@ import React from 'react';
 import { Text, View, Pressable } from 'react-native';
 import { router } from 'expo-router';
 import styles from '../tabStyle/tabOneStyles';
+import EditTimeButton from '@/components/EditTimeButton';
+import ToggleThemeButton from '@/components/ToggleThemeButton';
+import createCommonStyles from '../../components/StepFlow/steps/commonStyles';
+import { useTheme } from '../context/ThemeContext';
 
 export default function TabOneScreen() {
+  const { theme } = useTheme();
+  const common = createCommonStyles(theme);
+  
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome Back.</Text>
-      <Text style={styles.subline}>Keep it moving.</Text>
+    <View style={common.container}>
+      <ToggleThemeButton />
+      <EditTimeButton onPress={() => router.push('/edit-time')} />
+      <Text style={common.title}>Welcome Back.</Text>
+      <Text style={common.subline}>Keep it moving.</Text>
 
       <Pressable
         onPress={() => router.push('/setup')}

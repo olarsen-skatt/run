@@ -6,18 +6,14 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 40,
+    paddingVertical: 32,
   },
   colon: {
     fontSize: 32,
     color: '#fff',
     paddingHorizontal: 8,
   },
-  selectedTime: {
-    marginTop: 12,
-    color: '#00d4ff',
-    fontSize: 20,
-    fontWeight: '500',
-    textAlign: 'center',
-  },
+  footer: {
+    marginTop: 64
+  }
 });

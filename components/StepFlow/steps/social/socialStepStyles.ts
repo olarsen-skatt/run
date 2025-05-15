@@ -56,12 +56,6 @@ export default StyleSheet.create({
     marginBottom: 24,
     paddingVertical: 8,
   },
-  actionRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    marginTop: 12,
-  },
   navButton: {
     paddingVertical: 12,
     paddingHorizontal: 20,
