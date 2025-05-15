@@ -14,6 +14,18 @@ const createCommonStyles = (theme: Theme) => {
       alignItems: 'center',
       paddingHorizontal: 32,
     },
+    header: {
+      width: '100%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      paddingVertical: 14,
+      paddingHorizontal: 16,
+      backgroundColor: '#121212',
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: '#333',
+      marginBottom: 12,
+    },
     title: {
       fontSize: 32,
       color: colors.text,

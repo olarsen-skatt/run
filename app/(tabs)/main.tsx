@@ -7,6 +7,7 @@ import EditTimeButton from '@/components/EditTimeButton';
 import ToggleThemeButton from '@/components/ToggleThemeButton';
 import createCommonStyles from '../../components/StepFlow/steps/commonStyles';
 import { useTheme } from '../context/ThemeContext';
+import ToGroupsButton from '@/components/ToGroupsButton';
 
 export default function TabOneScreen() {
   const { theme } = useTheme();
@@ -14,6 +15,9 @@ export default function TabOneScreen() {
   
   return (
     <View style={common.container}>
+      <View style={common.header}>
+        <ToGroupsButton onPress={() => router.push('/group/group-info')} />
+      </View>
       <ToggleThemeButton />
       <EditTimeButton onPress={() => router.push('/edit-time')} />
       <Text style={common.title}>Welcome Back.</Text>

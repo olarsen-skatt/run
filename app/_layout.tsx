@@ -5,9 +5,9 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 
-import { useColorScheme } from '@/components/useColorScheme';
 import { ReminderProvider } from './context/ReminderContext';
 import { ThemeProvider } from './context/ThemeContext';
+import { GroupProvider } from './context/GroupContext';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -49,12 +49,14 @@ export default function RootLayout() {
 function RootLayoutNav() {
   return (
     <ThemeProvider>
-      <ReminderProvider>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        </Stack>
-      </ReminderProvider>
+      <GroupProvider>
+        <ReminderProvider>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          </Stack>
+        </ReminderProvider>
+      </GroupProvider>
     </ThemeProvider>
   );
 }
