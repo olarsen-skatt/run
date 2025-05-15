@@ -53,7 +53,6 @@ export default function StepFlow({ steps, onComplete }: StepFlowProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     justifyContent: 'center',
   },
 });

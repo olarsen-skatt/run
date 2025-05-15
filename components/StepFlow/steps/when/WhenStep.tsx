@@ -4,6 +4,7 @@ import { View, Text, Pressable } from 'react-native';
 import WheelPicker from 'react-native-wheel-picker-expo';
 import { StepProps } from '../../StepFlow';
 import styles from './whenStepStyles';
+import common from '../commonStyles';
 
 const hourItems = Array.from({ length: 24 }, (_, i) => ({
   label: i.toString().padStart(2, '0'),
@@ -25,8 +26,8 @@ export function WhenStep({ data, setData, goToNext }: StepProps) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>WHEN?</Text>
+    <View style={common.container}>
+      <Text style={common.title}>WHEN?</Text>
 
       <View style={styles.wheelWrap}>
         <WheelPicker
@@ -49,11 +50,11 @@ export function WhenStep({ data, setData, goToNext }: StepProps) {
       <Pressable
         onPress={confirm}
         style={({ pressed }) => [
-          styles.button,
-          pressed && styles.buttonPressed,
+          common.button,
+          pressed && common.buttonPressed,
         ]}
       >
-        <Text style={styles.buttonText}>Next →</Text>
+        <Text style={common.buttonText}>Next →</Text>
       </Pressable>
     </View>
   );

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Pressable } from 'react-native';
 import { StepProps } from '../../StepFlow';
 import styles from './socialStepStyles';
+import common from '../commonStyles';
 
 export function SocialStep({ data, setData, goToNext, goToPrevious }: StepProps) {
   const [mode, setMode] = useState<'solo' | 'join' | 'create'>(data.groupMode || 'solo');
@@ -19,7 +20,7 @@ export function SocialStep({ data, setData, goToNext, goToPrevious }: StepProps)
   };
 
   return (
-    <View style={styles.container}>
+    <View style={common.container}>
       <Text style={styles.heading}>Link Up?</Text>
       <Text style={styles.subheading}>Go solo or connect with a group — totally optional.</Text>
 

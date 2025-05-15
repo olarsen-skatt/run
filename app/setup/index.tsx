@@ -4,7 +4,11 @@ import { WhenStep } from '@/components/StepFlow/steps/when/WhenStep';
 import { SocialStep } from '@/components/StepFlow/steps/social/SocialStep';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { StartStep } from '@/components/StepFlow/steps/start/StartStep';
+import { IntroStep } from '@/components/StepFlow/steps/intro/IntroStep';
+
+export const options = {
+  headerShown: false,
+};
 
 export default function SetupScreen() {
   const router = useRouter();
@@ -23,8 +27,6 @@ export default function SetupScreen() {
 
     // Simulate async saving (e.g. to storage or API)
     await new Promise((res) => setTimeout(res, 500));
-
-    console.log('✅ Submitted reminder config:', data);
     showSuccess();
 
     setTimeout(() => {
@@ -40,7 +42,7 @@ export default function SetupScreen() {
           <ActivityIndicator size="large" />
         </View>
       ) : (
-        <StepFlow steps={[StartStep, WhenStep, SocialStep]} onComplete={handleComplete} />
+        <StepFlow steps={[IntroStep, WhenStep, SocialStep]} onComplete={handleComplete} />
       )}
     </View>
   );
